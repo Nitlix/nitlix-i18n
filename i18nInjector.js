@@ -35,7 +35,7 @@ module.exports = function(request, config, response=null){
         lang = lang.value.toLowerCase();
     }
 
-    if(!languages[lang]) {
+    if(!languages.includes(lang)) {
         const route = localeLogic(request, config, response);
         
         if (routes[route]) {
