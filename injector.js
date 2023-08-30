@@ -1,8 +1,8 @@
-import SETTINGS from "./SETTINGS";
-import { NextResponse } from "next/server";
-import { geolocation } from "@vercel/edge"
+const SETTINGS = require("./SETTINGS")
+const { NextResponse } = require('next/server')
+const { geolocation } = require('@vercel/edge')
 
-export default function(request, config, response=null){
+module.exports = function(request, config, response=null){
     const {
         routes = {
             default: 'en',
