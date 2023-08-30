@@ -1,6 +1,6 @@
 {
   "name": "nitlix-i18n",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🔥 An open-source language injector used in NitlixNextTemplate for creating i18n'ed experiences within a blink of an eye 🚀, without redirects.",
   "main": "exports.js",
   "keywords": ["i18n", "i18next", "i18n-react"],
