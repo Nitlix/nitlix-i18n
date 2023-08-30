@@ -1,12 +1,9 @@
 {
   "name": "nitlix-i18n",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "version": "1.0.2",
+  "description": "🔥 An open-source language injector used in NitlixNextTemplate for creating i18n'ed experiences within a blink of an eye 🚀, without redirects.",
+  "main": "exports.js",
+  "keywords": ["i18n", "i18next", "i18n-react"],
   "author": "",
   "license": "ISC",
   "dependencies": {
