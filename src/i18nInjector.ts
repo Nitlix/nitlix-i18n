@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { Config } from './types'
 import settings from './settings'
-const { geolocation } = require('@vercel/edge')
+import { geolocation } from '@vercel/edge'
 
 export default function(request: NextRequest, config: Config, response: NextResponse = NextResponse.next()){
     const {
@@ -38,7 +38,7 @@ export default function(request: NextRequest, config: Config, response: NextResp
     }
 
     if(!locales.includes(lang)) {
-        const route = localeLogic(request, config);
+        const route: string = localeLogic(request, config) || routes.default;
         
         if (routes[route]) {
             lang = routes[route];
