@@ -1,8 +1,7 @@
 "use client";
+import settings from "./settings"
 
-const SETTINGS = require("./SETTINGS")
-
-function getCookie(name){
+function getCookie(name: string=settings.signalCookie): string | null {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++){
         const cookie = cookies[i].split('=');
@@ -16,8 +15,8 @@ function getCookie(name){
 /**
  * @returns {string} The locale of the current session (Using client cookies, so client only)
  */
-module.exports = function(){
-    let lang = getCookie(SETTINGS.signalCookie);
+export default function(){
+    let lang = getCookie();
     if (lang){
         return lang.toLowerCase();
     }
