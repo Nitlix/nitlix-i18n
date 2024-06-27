@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { Config } from './types'
-import settings from './settings'
-import { geolocation } from '@vercel/edge'
+import settings from './settings';
+
 
 export default function(request: NextRequest, config: Config, response: NextResponse = NextResponse.next()){
     const {
@@ -11,9 +11,11 @@ export default function(request: NextRequest, config: Config, response: NextResp
         locales = [
             "en"
         ],
-        localeLogic = (request: NextRequest, config: Config)=>geolocation(request).country,
-        langCookie = 'lang',
-    } = config
+        localeLogic = (request: NextRequest)=>{
+            const header = request.headers.get('Accept-Language') || request.headers.get('accept-language') || '';
+            return header;
+        },
+    } = config;
 
     if (!response){
         response = NextResponse.next();
@@ -32,26 +34,19 @@ export default function(request: NextRequest, config: Config, response: NextResp
         request.headers.set(name, value);
     }
 
-    let lang: any = getCookie(langCookie);
-    if (lang){
-        lang = lang.value.toLowerCase();
-    }
+    let lang: any = getCookie(settings.signalName)?.value.toLowerCase() || "";
 
     if(!locales.includes(lang)) {
-        const route: string = localeLogic(request, config) || routes.default;
+        const route: string = (localeLogic(request, config)) || routes.default;
         
-        if (routes[route]) {
-            lang = routes[route];
-        }
-        else {
-            lang = routes.default;
-        }
+        lang = routes.default;
+        (routes[route]) && (lang = routes[route]);
 
-        setCookie(langCookie, lang);
+        setCookie(settings.signalName, lang);
     }
 
-    setHeader(settings.signalHeader, lang);
-    setCookie(settings.signalCookie, lang);
+    setHeader(settings.signalName, lang);
+    setCookie(settings.signalName, lang);
 
     return {
         request, 

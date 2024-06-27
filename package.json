@@ -1,7 +1,7 @@
 {
     "name": "nitlix-i18n",
-    "version": "1.0.7",
-    "description": "🔥 An open-source language injector used in NitlixNextTemplate for creating i18n'ed experiences within a blink of an eye 🚀, without redirects.",
+    "version": "1.0.8",
+    "description": "🔥 A full-stack Next.JS language management tool used in NNT for creating i18n'ed experiences faster than ever before.",
     "main": "./dist/exports.js",
     "keywords": [
         "i18n",
@@ -12,6 +12,6 @@
     "license": "MIT",
     "devDependencies": {
         "@vercel/edge": "^1.0.1",
-        "next": "^13.5.4"
+        "next": "^14.2.4"
     }
 }
