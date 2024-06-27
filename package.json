@@ -1,6 +1,6 @@
 {
     "name": "nitlix-i18n",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "🔥 A full-stack Next.JS language management tool used in NNT for creating i18n'ed experiences faster than ever before.",
     "main": "./dist/exports.js",
     "keywords": [

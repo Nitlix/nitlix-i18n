@@ -12,8 +12,8 @@ export default function(request: NextRequest, config: Config, response: NextResp
             "en"
         ],
         localeLogic = (request: NextRequest)=>{
-            const header = request.headers.get('Accept-Language') || request.headers.get('accept-language') || '';
-            return header;
+            const header = request.headers.get('Accept-Language') || request.headers.get('accept-language') || "";
+            return header?.split(",")[0].split(";")[0].split("-")[0].toLowerCase();
         },
     } = config;
 
