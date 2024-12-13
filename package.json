@@ -1,6 +1,6 @@
 {
     "name": "nitlix-i18n",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "🔥 A full-stack Next.JS language management tool used in NNT for creating i18n'ed experiences faster than ever before.",
     "main": "./dist/exports.js",
     "keywords": [
@@ -12,6 +12,6 @@
     "license": "MIT",
     "devDependencies": {
         "@vercel/edge": "^1.0.1",
-        "next": "^14.2.4"
+        "next": "^15.1.0"
     }
 }
